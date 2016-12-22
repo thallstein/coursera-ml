@@ -1,1 +1,1 @@
-# coursera-ml
+# repo for coursera-ml course
