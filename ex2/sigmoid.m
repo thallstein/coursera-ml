@@ -11,6 +11,8 @@ g = zeros(size(z));
 
 g = (exp(-z) + 1) .^ -1;
 
+% fprintf('I was just called\n');
+
 % this would also work g = 1./(1+exp(-z));
 
 % =============================================================

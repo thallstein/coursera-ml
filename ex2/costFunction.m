@@ -20,25 +20,16 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
-    % Initialize some useful values
-    n = length(y); % number of training examples
-    
-    % cost: J
-    J = -1/n * sum(...
-        y      .* log(sigmoid(X * theta)) + ...
-        (1 - y) .* log(1 - sigmoid(X * theta)) ...
-    );
+% Cost function
 
-    % gradient: compute as the derivative of the cost function
-    grad = 1/n * X' * ((sigmoid(X * theta)) - y);
-
-
-% htheta = sigmoid(X * theta);
-% J = 1 / m * sum(-y .* log(htheta) - (1 - y) .* log(1 - htheta));
+h = sigmoid(X*theta); % compute the predicted values
+J = ( 1/m ) * ( -y' * log(h) - (1 - y)' * log(1-h) ); % compute the cost
 % for i = 1:size(theta, 1)
-%    grad(i) = 1 / m * sum((htheta - y) .* X(:, i));
+%     grad(i) = 1 / m * sum((h - y) .* X(:, i));
 % end
 
+grad = (1/m)*X'*((sigmoid(X*theta)) - y); % compute the gradient
+% grad = 1/m * X' * ((sigmoid(X * theta)) - y);
 
 % unregularized terms
 
