@@ -32,7 +32,7 @@ X = [ones(m, 1) X];
 
 htheta = X * all_theta'; % calculate the sigmoid() of the product of X and all_theta
 
-[val p] = max(htheta,[],2); % return the classifier which has the max value
+[maxval p] = max(htheta,[],2); % return the classifier which has the max value
 
 % =========================================================================
 

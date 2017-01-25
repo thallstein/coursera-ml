@@ -29,7 +29,7 @@ m2 = size(X2,1); % num rows in X2
 A2 = [ones(m2,1) X2]; % add 1s to create design matrix, col of 1s is for theta(0)
 Z3 = A2 * Theta2'; % compute layer 3
 A3 = sigmoid(Z3); % take the sigmoid
-[val p] = max(A3,[],2); % pull out the index of the highest value, the highest probability guess for the number
+[maxval p] = max(A3,[],2); % pull out the index of the highest value, the highest probability guess for the number
 
 
 % =========================================================================
