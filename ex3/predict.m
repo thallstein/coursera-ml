@@ -4,7 +4,7 @@ function p = predict(Theta1, Theta2, X)
 %   trained weights of a neural network (Theta1, Theta2)
 
 % Useful values
-m = size(X, 1);
+m1 = size(X, 1);
 num_labels = size(Theta2, 1);
 
 % You need to return the following variables correctly 
@@ -22,11 +22,14 @@ p = zeros(size(X, 1), 1);
 %
 
 
-
-
-
-
-
+A1 = [ones(m1, 1) X]; % add 1s to create design matrix, col of 1s is for theta(0)
+Z2 = A1 * Theta1'; % compute layer 2
+X2 = sigmoid(Z2); % take the sigmoid
+m2 = size(X2,1); % num rows in X2
+A2 = [ones(m2,1) X2]; % add 1s to create design matrix, col of 1s is for theta(0)
+Z3 = A2 * Theta2'; % compute layer 3
+A3 = sigmoid(Z3); % take the sigmoid
+[val p] = max(A3,[],2); % pull out the index of the highest value, the highest probability guess for the number
 
 
 % =========================================================================
